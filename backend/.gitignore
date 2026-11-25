@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Environment variables (CRITICAL: keeps secrets off GitHub)
+.env
+.env.local
+.env.production
+
+# Production builds
+dist/
+build/
+
+# Logs & OS files
+npm-debug.log*
+.DS_Store
+Thumbs.db
