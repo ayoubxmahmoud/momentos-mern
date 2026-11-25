@@ -21,7 +21,7 @@ A full-stack social web application for capturing, sharing, and exploring person
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com<your-username>/momentos-mern.git
+   git clone https://github.com/ayoubxmahmoud/momentos-mern.git
    cd momentos-mern
    ```
 
