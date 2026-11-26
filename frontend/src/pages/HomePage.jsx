@@ -141,7 +141,9 @@ const HomePage = () => {
     requireAuth(async () => {
       try {
         const res = await api.post(`/momentos/${momentoId}/comments`, { text });
-        setMomentos((prev) => prev.map((item) => (item._id === momentoId ? res.data : item)));
+        setMomentos((prev) =>
+          prev.map((item) => (item._id === momentoId ? res.data : item))
+        );
         onSuccess?.();
       } catch (error) {
         toast.error(error.response?.data?.message || "Failed to post comment");
@@ -153,17 +155,21 @@ const HomePage = () => {
   const handleDeleteComment = (momentoId, commentId) => {
     requireAuth(async () => {
       try {
-        const res = await api.delete(`/momentos/${momentoId}/comments/${commentId}`);
-        setMomentos((prev) => prev.map((item) => (item._id === momentoId ? res.data : item)));
+        const res = await api.delete(
+          `/momentos/${momentoId}/comments/${commentId}`
+        );
+        setMomentos((prev) =>
+          prev.map((item) => (item._id === momentoId ? res.data : item))
+        );
         toast.success("Comment deleted");
       } catch (error) {
         toast.error(error.response?.data?.message || "Failed to delete comment");
       }
     });
-  }
+  };
 
   return (
-    <div className="min-h-screen bg-[#131926] text-slate-100">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#131926] text-slate-900 dark:text-slate-100 transition-colors">
       <Navbar
         user={user}
         onLogout={logout}
@@ -189,7 +195,7 @@ const HomePage = () => {
             {[...Array(6)].map((_, idx) => (
               <div
                 key={idx}
-                className="h-80 rounded-2xl bg-[#1e2638] animate-pulse border border-slate-800"
+                className="h-80 rounded-2xl bg-slate-200 dark:bg-[#1e2638] animate-pulse border border-slate-300 dark:border-slate-800"
               />
             ))}
           </div>
@@ -198,8 +204,8 @@ const HomePage = () => {
           <MomentosNotFound onOpenCreate={handleOpenCreate} />
         ) : filteredMomentos.length === 0 ? (
           /* 3. Empty Search / Tag Filter Result State */
-          <div className="text-center py-16 bg-[#1e2638]/50 rounded-2xl border border-slate-800">
-            <p className="text-slate-300 font-medium mb-2">
+          <div className="text-center py-16 bg-white dark:bg-[#1e2638]/50 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
+            <p className="text-slate-700 dark:text-slate-300 font-medium mb-2">
               No momentos match your search or tag filter.
             </p>
             <button
@@ -252,7 +258,6 @@ const HomePage = () => {
         onLike={handleLike}
         onEdit={handleEdit}
         onDelete={handleDelete}
-        onTagClick={(tag) => setSelectedTag(tag)}
         onAddComment={handleAddComment}
         onDeleteComment={handleDeleteComment}
       />

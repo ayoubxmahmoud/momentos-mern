@@ -1,5 +1,5 @@
 # Momentos — Full-Stack MERN Social Memory App
-
+<img width="1408" height="768" alt="Schema Diagram" src="https://github.com/user-attachments/assets/c50ac22c-51d0-4d89-8625-735764ad8207" />
 A full-stack social web application for capturing, sharing, and exploring personal moments with image uploads, interactive likes, comments, real-time search/tag filtering, and user profiles.
 
 ## Features

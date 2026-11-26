@@ -4,11 +4,12 @@ import { X, CloudUpload, Trash2, Loader2 } from "lucide-react";
 import api from "../lib/axios";
 
 const TAG_COLORS = [
-  "bg-cyan-500/20 text-cyan-300 border-cyan-500/40",
-  "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
-  "bg-indigo-500/20 text-indigo-300 border-indigo-500/40",
-  "bg-purple-500/20 text-purple-300 border-purple-500/40",
+  "bg-cyan-50 text-cyan-700 border-cyan-200 dark:bg-cyan-500/20 dark:text-cyan-300 dark:border-cyan-500/40",
+  "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/20 dark:text-emerald-300 dark:border-emerald-500/40",
+  "bg-indigo-50 text-indigo-700 border-indigo-200 dark:bg-indigo-500/20 dark:text-indigo-300 dark:border-indigo-500/40",
+  "bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-500/20 dark:text-purple-300 dark:border-purple-500/40",
 ];
+
 
 const CreateMomentoModal = ({ isOpen, onClose, onMomentoCreated }) => {
   const [title, setTitle] = useState("");
@@ -105,23 +106,23 @@ const CreateMomentoModal = ({ isOpen, onClose, onMomentoCreated }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto flex justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 overflow-y-auto flex justify-center p-4 bg-black/60 dark:bg-black/75 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
     >
       {/* Modal Box with Subtle Indigo Glow */}
       <div
-        className="relative my-auto w-full max-w-lg bg-[#1c2436] border border-indigo-500/40 rounded-2xl p-6 shadow-[0_0_40px_rgba(79,70,229,0.25)] text-slate-100"
+        className="relative my-auto w-full max-w-lg bg-white dark:bg-[#1c2436] border border-slate-200 dark:border-indigo-500/40 rounded-2xl p-6 shadow-2xl dark:shadow-[0_0_40px_rgba(79,70,229,0.25)] text-slate-900 dark:text-slate-100 transition-colors"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-center justify-between mb-5">
-          <h2 className="text-xl font-bold text-white tracking-tight">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
             Create a Momento
           </h2>
           <button
             type="button"
             onClick={onClose}
-            className="btn btn-ghost btn-sm btn-circle text-slate-400 hover:text-white hover:bg-slate-800"
+            className="btn btn-ghost btn-sm btn-circle text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -132,7 +133,7 @@ const CreateMomentoModal = ({ isOpen, onClose, onMomentoCreated }) => {
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Title */}
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
               Title
             </label>
             <input
@@ -141,14 +142,14 @@ const CreateMomentoModal = ({ isOpen, onClose, onMomentoCreated }) => {
               placeholder="Momento Title..."
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="input input-bordered w-full bg-[#151c2c] border-slate-700 focus:border-indigo-500 focus:outline-none text-white placeholder-slate-500 rounded-xl"
+              className="input input-bordered w-full bg-slate-50 dark:bg-[#151c2c] border-slate-300 dark:border-slate-700 focus:border-indigo-500 focus:outline-none text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 rounded-xl transition-colors"
               required
             />
           </div>
 
           {/* Content */}
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
               Content
             </label>
             <textarea
@@ -156,14 +157,14 @@ const CreateMomentoModal = ({ isOpen, onClose, onMomentoCreated }) => {
               placeholder="Describe your memory..."
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              className="textarea textarea-bordered w-full bg-[#151c2c] border-slate-700 focus:border-indigo-500 focus:outline-none text-white placeholder-slate-500 rounded-xl leading-relaxed"
+              className="textarea textarea-bordered w-full bg-slate-50 dark:bg-[#151c2c] border-slate-300 dark:border-slate-700 focus:border-indigo-500 focus:outline-none text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 rounded-xl leading-relaxed transition-colors"
               required
             />
           </div>
 
           {/* Tags */}
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
               Tags (comma separated)
             </label>
             <input
@@ -171,7 +172,7 @@ const CreateMomentoModal = ({ isOpen, onClose, onMomentoCreated }) => {
               placeholder="adventure, sunset, travel..."
               value={tagsInput}
               onChange={(e) => setTagsInput(e.target.value)}
-              className="input input-bordered w-full bg-[#151c2c] border-slate-700 focus:border-indigo-500 focus:outline-none text-white placeholder-slate-500 rounded-xl"
+              className="input input-bordered w-full bg-slate-50 dark:bg-[#151c2c] border-slate-300 dark:border-slate-700 focus:border-indigo-500 focus:outline-none text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 rounded-xl transition-colors"
             />
 
             {/* Live Colored Tag Pills */}
@@ -192,12 +193,12 @@ const CreateMomentoModal = ({ isOpen, onClose, onMomentoCreated }) => {
 
           {/* Upload Image Dropzone */}
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
               Upload Image
             </label>
 
             {imagePreview ? (
-              <div className="relative rounded-xl overflow-hidden border border-slate-700 h-40 group">
+              <div className="relative rounded-xl overflow-hidden border border-slate-300 dark:border-slate-700 h-40 group">
                 <img
                   src={imagePreview}
                   alt="Preview"
@@ -226,14 +227,14 @@ const CreateMomentoModal = ({ isOpen, onClose, onMomentoCreated }) => {
                 onDragLeave={() => setIsDragging(false)}
                 onDrop={handleDrop}
                 className={`cursor-pointer border-2 border-dashed rounded-xl py-7 px-4 flex flex-col items-center justify-center text-center transition-colors ${isDragging
-                    ? "border-indigo-400 bg-indigo-500/10"
-                    : "border-slate-600/80 bg-[#151c2c]/60 hover:border-indigo-400/70 hover:bg-[#151c2c]"
+                    ? "border-indigo-500 bg-indigo-50 dark:border-indigo-400 dark:bg-indigo-500/10"
+                    : "border-slate-300 bg-slate-50/80 hover:border-indigo-400 hover:bg-slate-100/80 dark:border-slate-600/80 dark:bg-[#151c2c]/60 dark:hover:border-indigo-400/70 dark:hover:bg-[#151c2c]"
                   }`}
               >
-                <div className="p-2.5 rounded-full bg-slate-800 text-slate-200 mb-2">
+                <div className="p-2.5 rounded-full bg-indigo-50 text-indigo-600 dark:bg-slate-800 dark:text-slate-200 mb-2">
                   <CloudUpload className="w-6 h-6" />
                 </div>
-                <p className="text-sm font-medium text-slate-300">
+                <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
                   Click or drag image to upload
                 </p>
                 <p className="text-xs text-slate-500 mt-1">
@@ -272,7 +273,7 @@ const CreateMomentoModal = ({ isOpen, onClose, onMomentoCreated }) => {
               type="button"
               onClick={handleClear}
               disabled={isSubmitting}
-              className="btn w-full bg-slate-700/70 hover:bg-slate-700 text-slate-200 font-semibold tracking-wider border-none rounded-xl"
+              className="btn w-full bg-slate-200 hover:bg-slate-300 text-slate-700 dark:bg-slate-700/70 dark:hover:bg-slate-700 dark:text-slate-200 font-semibold tracking-wider border-none rounded-xl transition-colors"
             >
               CLEAR
             </button>
@@ -281,6 +282,7 @@ const CreateMomentoModal = ({ isOpen, onClose, onMomentoCreated }) => {
       </div>
     </div>
   );
+
 };
 
 export default CreateMomentoModal;

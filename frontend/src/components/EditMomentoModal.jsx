@@ -82,22 +82,22 @@ const EditMomentoModal = ({ momento, onClose, onMomentoUpdated }) => {
 
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm"
+            className="fixed inset-0 z-50 overflow-y-auto flex justify-center p-4 bg-black/60 dark:bg-black/75 backdrop-blur-sm"
             onClick={onClose}
         >
             <div
-                className="relative w-full max-w-lg bg-[#1c2436] border border-indigo-500/40 rounded-2xl p-6 shadow-[0_0_40px_rgba(79,70,229,0.25)] text-slate-100"
+                className="relative my-auto w-full max-w-lg bg-white dark:bg-[#1c2436] border border-slate-200 dark:border-indigo-500/40 rounded-2xl p-6 shadow-2xl dark:shadow-[0_0_40px_rgba(79,70,229,0.25)] text-slate-900 dark:text-slate-100 transition-colors"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Header */}
                 <div className="flex items-center justify-between mb-5">
-                    <h2 className="text-xl font-bold text-white tracking-tight">
+                    <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
                         Edit Momento
                     </h2>
                     <button
                         type="button"
                         onClick={onClose}
-                        className="btn btn-ghost btn-sm btn-circle text-slate-400 hover:text-white hover:bg-slate-800"
+                        className="btn btn-ghost btn-sm btn-circle text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800"
                     >
                         <X className="w-5 h-5" />
                     </button>
@@ -107,7 +107,7 @@ const EditMomentoModal = ({ momento, onClose, onMomentoUpdated }) => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Title */}
                     <div>
-                        <label className="block text-sm font-medium text-slate-300 mb-1.5">
+                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
                             Title
                         </label>
                         <input
@@ -115,43 +115,44 @@ const EditMomentoModal = ({ momento, onClose, onMomentoUpdated }) => {
                             maxLength={100}
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
-                            className="input input-bordered w-full bg-[#151c2c] border-slate-700 focus:border-indigo-500 focus:outline-none text-white rounded-xl"
+                            className="input input-bordered w-full bg-slate-50 dark:bg-[#151c2c] border-slate-300 dark:border-slate-700 focus:border-indigo-500 focus:outline-none text-slate-900 dark:text-white rounded-xl transition-colors"
                             required
                         />
                     </div>
 
                     {/* Content */}
                     <div>
-                        <label className="block text-sm font-medium text-slate-300 mb-1.5">
+                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
                             Content
                         </label>
                         <textarea
                             rows={3}
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
-                            className="textarea textarea-bordered w-full bg-[#151c2c] border-slate-700 focus:border-indigo-500 focus:outline-none text-white rounded-xl leading-relaxed"
+                            className="textarea textarea-bordered w-full bg-slate-50 dark:bg-[#151c2c] border-slate-300 dark:border-slate-700 focus:border-indigo-500 focus:outline-none text-slate-900 dark:text-white rounded-xl leading-relaxed transition-colors"
                             required
                         />
                     </div>
 
                     {/* Tags */}
                     <div>
-                        <label className="block text-sm font-medium text-slate-300 mb-1.5">
+                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
                             Tags (comma separated)
                         </label>
                         <input
                             type="text"
                             value={tagsInput}
                             onChange={(e) => setTagsInput(e.target.value)}
-                            className="input input-bordered w-full bg-[#151c2c] border-slate-700 focus:border-indigo-500 focus:outline-none text-white rounded-xl"
+                            className="input input-bordered w-full bg-slate-50 dark:bg-[#151c2c] border-slate-300 dark:border-slate-700 focus:border-indigo-500 focus:outline-none text-slate-900 dark:text-white rounded-xl transition-colors"
                         />
                         {parsedTags.length > 0 && (
                             <div className="flex flex-wrap gap-1.5 mt-2.5">
                                 {parsedTags.map((tag, index) => (
                                     <span
                                         key={`${tag}-${index}`}
-                                        className={`text-xs font-medium px-2.5 py-0.5 rounded-full border ${TAG_COLORS[index % TAG_COLORS.length]
-                                            }`}
+                                        className={`text-xs font-medium px-2.5 py-0.5 rounded-full border ${
+                                            TAG_COLORS[index % TAG_COLORS.length]
+                                        }`}
                                     >
                                         #{tag}
                                     </span>
@@ -162,12 +163,12 @@ const EditMomentoModal = ({ momento, onClose, onMomentoUpdated }) => {
 
                     {/* Image Preview & Replace */}
                     <div>
-                        <label className="block text-sm font-medium text-slate-300 mb-1.5">
+                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
                             Image
                         </label>
 
                         {imagePreview ? (
-                            <div className="relative rounded-xl overflow-hidden border border-slate-700 h-40 group">
+                            <div className="relative rounded-xl overflow-hidden border border-slate-300 dark:border-slate-700 h-40 group">
                                 <img
                                     src={imagePreview}
                                     alt="Preview"
@@ -185,10 +186,12 @@ const EditMomentoModal = ({ momento, onClose, onMomentoUpdated }) => {
                         ) : (
                             <div
                                 onClick={() => fileInputRef.current?.click()}
-                                className="cursor-pointer border-2 border-dashed border-slate-600/80 bg-[#151c2c]/60 hover:border-indigo-400/70 rounded-xl py-6 px-4 flex flex-col items-center justify-center text-center"
+                                className="cursor-pointer border-2 border-dashed border-slate-300 bg-slate-50/80 hover:border-indigo-400 hover:bg-slate-100/80 dark:border-slate-600/80 dark:bg-[#151c2c]/60 dark:hover:border-indigo-400/70 rounded-xl py-6 px-4 flex flex-col items-center justify-center text-center transition-colors"
                             >
-                                <CloudUpload className="w-6 h-6 text-slate-300 mb-1.5" />
-                                <p className="text-sm text-slate-300">Click to upload image</p>
+                                <CloudUpload className="w-6 h-6 text-indigo-600 dark:text-slate-300 mb-1.5" />
+                                <p className="text-sm text-slate-700 dark:text-slate-300">
+                                    Click to upload image
+                                </p>
                             </div>
                         )}
 
@@ -199,7 +202,6 @@ const EditMomentoModal = ({ momento, onClose, onMomentoUpdated }) => {
                             onChange={(e) => handleFileChange(e.target.files?.[0])}
                             className="hidden"
                         />
-
                     </div>
 
                     {/* Submit & Cancel */}
@@ -223,7 +225,7 @@ const EditMomentoModal = ({ momento, onClose, onMomentoUpdated }) => {
                             type="button"
                             onClick={onClose}
                             disabled={isSubmitting}
-                            className="btn w-full bg-slate-700/70 hover:bg-slate-700 text-slate-200 font-semibold tracking-wider border-none rounded-xl"
+                            className="btn w-full bg-slate-200 hover:bg-slate-300 text-slate-700 dark:bg-slate-700/70 dark:hover:bg-slate-700 dark:text-slate-200 font-semibold tracking-wider border-none rounded-xl transition-colors"
                         >
                             CANCEL
                         </button>
@@ -232,6 +234,7 @@ const EditMomentoModal = ({ momento, onClose, onMomentoUpdated }) => {
             </div>
         </div>
     );
+
 };
 
 export default EditMomentoModal;

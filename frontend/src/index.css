@@ -1,4 +1,15 @@
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: forest --default;
+};
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Hide default OS scrollbar while keeping smooth horizontal scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
