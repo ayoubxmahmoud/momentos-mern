@@ -3,7 +3,7 @@ A full-stack social web application for capturing, sharing, and exploring person
 
 ## Screenshots
 
-| Home Feed | Light / Dark Theme | Momento Details & Comments |
+| Home Feed | Light / Dark Theme | Create Momento Form |
 | :---: | :---: | :---: |
 | <img src="./frontend/public/screenshots/shot-1.png" alt="Home Feed" width="100%" /> | <img src="./frontend/public/screenshots/shot-2.png" alt="Theme Toggle & Search" width="100%" /> | <img src="./frontend/public/screenshots/shot-3.png" alt="Momento Lightbox & Comments" width="100%" /> |
 
