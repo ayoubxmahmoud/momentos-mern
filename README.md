@@ -1,6 +1,17 @@
 # Momentos — Full-Stack MERN Social Memory App
-<img width="1408" height="768" alt="Schema Diagram" src="https://github.com/user-attachments/assets/c50ac22c-51d0-4d89-8625-735764ad8207" />
 A full-stack social web application for capturing, sharing, and exploring personal moments with image uploads, interactive likes, comments, real-time search/tag filtering, and user profiles.
+
+## Screenshots
+
+| Home Feed | Light / Dark Theme | Momento Details & Comments |
+| :---: | :---: | :---: |
+| <img src="./frontend/public/screenshots/shot-1.png" alt="Home Feed" width="100%" /> | <img src="./frontend/public/screenshots/shot-2.png" alt="Theme Toggle & Search" width="100%" /> | <img src="./frontend/public/screenshots/shot-3.png" alt="Momento Lightbox & Comments" width="100%" /> |
+
+## Database Schema
+
+<p align="center">
+  <img width="100%" alt="MongoDB Schema Diagram" src="./frontend/public/screenshots/schema-diagram.jpg" />
+</p>
 
 ## Features
 
